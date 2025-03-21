@@ -1,0 +1,235 @@
+.popup {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	width: calc(100% + var(--scrollbar-width, 0px));
+	height: 100%;
+	z-index: 10001;
+	opacity: 0;
+	visibility: hidden;
+	overflow: auto hidden;
+	backdrop-filter: blur(10px);
+	transition:
+		visibility 0.6s,
+		opacity 0.2s ease;
+
+	> .button {
+		position: absolute;
+		top: var(--padding-h);
+		right: var(--padding-h);
+		margin: 0;
+		z-index: 1;
+	}
+}
+
+/* Overlay. */
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	backdrop-filter: blur(10px);
+	background-color: var(--popup--overlay--background-color);
+	opacity: 0.8;
+	border: 0;
+	z-index: -1;
+}
+
+/* Container */
+.popup-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 320px;
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	overflow: hidden auto;
+	background-color: var(--color-background-100);
+	transform: translateX(-40px);
+	transition: transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
+	transition-delay: 0.3s;
+}
+
+/* Header. */
+.popup-header {
+	top: 0;
+	gap: var(--spacing-1);
+	display: flex;
+	align-items: center;
+	padding: 0 var(--padding-h);
+	min-height: var(--sidebar-header--min-height);
+
+	> .navigation {
+		display: none;
+		margin-left: auto;
+	}
+}
+
+.popup-header-filter {
+	width: 130px;
+	margin-left: auto;
+}
+
+/* Footer. */
+.popup-footer {
+	bottom: 0;
+	margin-top: auto;
+	padding: var(--padding-h);
+}
+
+.popup-header,
+.popup-footer {
+	position: sticky;
+	left: 0;
+	backdrop-filter: blur(10px);
+	z-index: 3;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-background-100);
+		opacity: 0.8;
+		z-index: -1;
+	}
+}
+
+/* Content. */
+.popup-content {
+	padding: 0 var(--padding-h);
+
+	> .button {
+		display: block;
+	}
+}
+
+.popup-content-navigation {
+	display: none;
+}
+
+.popup-content-posts,
+.popup-content-posts .posts-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* Toggle input. */
+.popup-toggle-input {
+	position: absolute;
+	display: none;
+	top: 0;
+	opacity: 0;
+	z-index: -1;
+}
+
+/* Toggle. */
+.popup-toggle {
+	display: none;
+	gap: 2px;
+	padding: 2px;
+	border-radius: 2rem;
+	background-color: var(--color-background-200);
+	border: 1px solid var(--color-border);
+
+	> label {
+		padding: 2px 10px;
+		margin: 0;
+		cursor: pointer;
+		color: var(--color-contrast);
+		outline-offset: 2px;
+		border-radius: 2rem;
+		transition:
+			color 0.1s ease,
+			background-color 0.1s ease;
+
+		&:hover {
+			background-color: var(--color-background-400);
+		}
+	}
+}
+
+.popup-toggle-input[value='navigation']:checked
+	~ .popup-header
+	.popup-toggle-nav,
+.popup-toggle-input[value='posts']:checked ~ .popup-header .popup-toggle-posts {
+	cursor: default;
+	color: var(--color-background);
+	background-color: var(--color-contrast);
+}
+
+.popup-toggle-input[value='navigation']:focus-visible
+	~ .popup-header
+	.popup-toggle-nav,
+.popup-toggle-input[value='posts']:focus-visible
+	~ .popup-header
+	.popup-toggle-posts {
+	outline: 5px auto Highlight;
+	outline: 5px auto -webkit-focus-ring-color;
+}
+
+/* Event. */
+.popup-open {
+	width: 100%;
+	opacity: 1;
+	visibility: visible;
+
+	> .popup-container {
+		transform: translateX(0);
+		transition-delay: 0s;
+	}
+}
+
+.popup-hide {
+	pointer-events: none;
+}
+
+@media (--breakpoint-md) {
+	.popup-content-navigation {
+		display: block;
+	}
+
+	.popup-content-posts {
+		display: none;
+	}
+
+	.popup-toggle-input,
+	.popup-toggle {
+		display: flex;
+	}
+
+	/* Navigation toggle active. */
+	.popup-toggle-input[value='navigation']:checked {
+		~ .popup-header > .popup-header-filter {
+			display: none;
+		}
+
+		~ .popup-header > .navigation {
+			display: block;
+		}
+
+		~ .popup-content-posts {
+			display: none;
+		}
+
+		~ .popup-content-navigation {
+			display: block;
+		}
+	}
+
+	/* Posts toggle active. */
+	.popup-toggle-input[value='posts']:checked {
+		~ .popup-content-navigation {
+			display: none;
+		}
+
+		~ .popup-content-posts {
+			display: flex;
+		}
+	}
+}

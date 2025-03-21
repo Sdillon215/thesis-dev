@@ -1,0 +1,126 @@
+<body class="{{body_class}}{{#if class}} {{class}}{{/if}}{{#if has_cta}} page-has-cta{{/if}}">
+	<a href="#navigation" class="button screen-reader-text">{{t "Skip to Navigation"}}</a>
+	<a href="#navigation-posts" class="button screen-reader-text">{{t "Skip to Posts"}}</a>
+	<a href="#content" class="button screen-reader-text">{{t "Skip to Content"}}</a>
+
+	<div class="main">
+		{{> "layout/sidebar-navigation"}}
+
+		<main class="content" id="content">
+			{{#if has_header}}{{> "layout/header" show_breadcrumbs=has_breadcrumbs}}{{/if}}
+
+			<article class="{{#if is_page_post}}post{{else}}page{{/if}}">
+				{{> @partial-block}}
+			</article>
+
+			{{#if has_cta}}{{> "sections/cta"}}{{/if}}
+			{{> "layout/footer"}}
+		</main>
+
+		{{> "layout/sidebar-posts"}}
+	</div>
+
+	{{> "navigation/mobile"}}
+	{{> "layout/scroll-progress"}}
+
+	{{!-- Popup navigation with posts. --}}
+	<div class="popup popup-navigation" data-id="popup-navigation">
+		<button class="button-minimal button popup-close" aria-label="Popup close">
+			{{> "icons/x"}}
+		</button>
+
+		<div class="popup-container">
+			<input class="popup-toggle-input" value="navigation" name="popup-toggle" type="radio" id="popup-toggle-navigation" checked>
+			<input class="popup-toggle-input" value="posts" name="popup-toggle" type="radio" id="popup-toggle-posts">
+
+			{{!-- Header. --}}
+			<div class="popup-header">
+				<div class="popup-toggle">
+					<label class="popup-toggle-nav" for="popup-toggle-navigation">{{t "Nav"}}</label>
+					<label class="popup-toggle-posts" for="popup-toggle-posts">{{t "Posts"}}</label>
+				</div>
+
+				{{!-- Filter. --}}
+				{{#get "tags" limit="all" filter="visibility:public"}}
+					{{#if tags}}
+					<select class="popup-header-filter sidebar-posts-filter" aria-label="Select tag" data-filter data-filter-append=".sidebar-list, .popup-content-posts .posts-list" data-filter-from=".tag-posts-list">
+						<option value="all">{{t "All"}}</option>
+						{{#foreach tags}}
+						<option value="{{url absolute=true}}">{{name}}</option>
+						{{/foreach}}
+					</select>
+					{{/if}}
+				{{/get}}
+
+				{{> "navigation/secondary"}}
+			</div>
+
+			{{!-- Navigation. --}}
+			<div class="popup-content popup-content-navigation">
+				{{!-- Navigation. --}}
+				{{#if @site.navigation}}
+				<nav class="navigation navigation-has-current sidebar-navigation">
+					{{navigation isMobile=false has_icon=true}}
+				</nav>
+				{{/if}}
+
+				{{!-- Tags. --}}
+				{{#if @custom.tags_list_sidebar}}
+					{{!-- All available tags. --}}
+					{{#match @custom.tags_list_sidebar "-1"}}
+						{{#get "tags" limit="all" filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+							{{> "navigation/tags"}}
+						{{/get}}
+					{{!-- Number of popular tags. --}}
+					{{else match @custom.tags_list_sidebar ">" 0}}
+						{{#get "tags" limit=@custom.tags_list_sidebar filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+							{{> "navigation/tags"}}
+						{{/get}}
+					{{!-- Select specific tags. --}}
+					{{else}}
+						{{#get "tags" limit="all" filter="slug:[{{@custom.tags_list_sidebar}}]"}}
+							{{> "navigation/tags"}}
+						{{/get}}
+					{{/match}}
+				{{/if}}
+
+				{{!-- Social links. --}}
+				<nav class="navigation sidebar-navigation{{#unless @site.twitter}}{{#unless @site.facebook}} navigation-hide{{/unless}}{{/unless}}">
+					<div class="sidebar-navigation-tag">{{t "Socials"}}</div>
+					{{> "components/social-links"}}
+				</nav>
+			</div>
+
+			{{!-- Posts. --}}
+			<div class="popup-content popup-content-posts">
+				<div class="posts-list">
+					{{#get "posts" limit=@config.posts_per_page include="tags,tiers" as |post|}}
+						{{#post}}
+							{{> "components/card-post" current_slug=../../post.slug}}
+						{{/post}}
+					{{/get}}
+				</div>
+
+				{{#get "posts" limit="all"}}
+					{{#match posts.length ">" @config.posts_per_page}}
+						{{> "components/pagination-button" class="button-grey" href="/" label=(t 'Load More') page=2 type="infinite" append=".posts-list" from=".sidebar-list"}}
+					{{/match}}
+				{{/get}}
+			</div>
+
+			{{!-- Button member. --}}
+			{{#if @site.portal_button}}
+			<div class="popup-footer">
+				{{> "components/button-member" styled=true}}
+			</div>
+			{{/if}}
+		</div>
+
+		<button class="popup-overlay popup-close" aria-label="{{t "Hide popup"}}" tabindex="-1"></button>
+	</div>
+
+	<script src="{{asset "built/index.js"}}"></script>
+
+	{{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
+	{{ghost_foot}}
+</body>

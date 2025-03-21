@@ -1,0 +1,55 @@
+.post-content {
+	.kg-audio-card {
+		gap: var(--spacing-2);
+		padding: var(--spacing-1);
+		border-radius: var(--radius-3);
+	}
+
+	.kg-audio-thumbnail {
+		margin: 0;
+		border-radius: 0;
+	}
+
+	.kg-audio-thumbnail.placeholder svg {
+		color: var(--color-accent-foreground);
+	}
+
+	.kg-audio-player-container {
+		justify-content: space-evenly;
+		gap: calc(var(--spacing-1) * 0.5);
+	}
+
+	.kg-audio-seek-slider {
+		flex-basis: 0;
+	}
+
+	.kg-audio-title {
+		padding-left: 0;
+		padding-bottom: 0;
+		margin-top: 0;
+		@mixin heading-6;
+		color: var(--color-contrast);
+	}
+
+	.kg-audio-player {
+		flex-wrap: wrap;
+		padding-top: 0;
+		padding-left: 0;
+		gap: 6px;
+		flex-grow: 0;
+	}
+
+	.kg-audio-playback-rate {
+		padding: 0;
+		justify-content: center;
+		border-radius: 3px;
+
+		&:hover {
+			box-shadow: 0 0 0 1px var(--color-border);
+		}
+	}
+
+	.kg-audio-unmute-icon {
+		margin-right: -6px;
+	}
+}

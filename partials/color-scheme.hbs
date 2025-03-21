@@ -1,0 +1,90 @@
+{{#if @custom.display_color_scheme_toggle}}
+<script>
+	(function() {
+		// https://github.com/gr2m/has-localstorage.
+		function hasLocalStorage() {
+			const { localStorage } = window;
+			const testKey = 'Storage-Test';
+			try {
+				if (typeof localStorage === 'undefined') {
+					return false;
+				}
+
+				localStorage.setItem(testKey, '1');
+
+				if (localStorage.getItem(testKey) !== '1') {
+					return false;
+				}
+
+				localStorage.removeItem(testKey);
+
+				return true;
+			} catch (_error) {
+				return false;
+			}
+		}
+
+		// Update color scheme in the comments.
+		let hasAccentBlack = false;
+		function updateSchemeComments(value) {
+			const script = document.querySelector('script[src*="comments-ui"]');
+			if (!script) return;
+
+			script.setAttribute('data-color-scheme', value);
+
+			const hasDark = value === 'system' ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches : value === 'dark';
+
+			if (!hasAccentBlack) {
+				hasAccentBlack = script.getAttribute('data-accent-color') === '#000000';
+			}
+			if (hasAccentBlack) {
+				script.setAttribute('data-accent-color', hasDark ? '#525252' : '#000000');
+			}
+		}
+
+		const localStorage = hasLocalStorage() ? window.localStorage : false;
+		const colorScheme = localStorage?.getItem('color-scheme');
+		let html = document.documentElement;
+		let currentScheme = html.getAttribute('data-color-scheme');
+
+		// Set initial color scheme.
+		if (colorScheme && colorScheme !== html.getAttribute('data-color-scheme')) {
+			html.setAttribute('data-color-scheme', colorScheme);
+			currentScheme = colorScheme;
+		}
+
+		// Toggle color scheme.
+		document.addEventListener('click', function(e) {
+			let button = e.target.closest('.toggle-color-scheme-button');
+			if (!button) return;
+
+			e.preventDefault();
+			const value = button.getAttribute('value');
+			if (currentScheme === value) return;
+
+			updateSchemeComments(value);
+			html.classList.add('stop-transition');
+			html.setAttribute('data-color-scheme', value);
+			localStorage?.setItem('color-scheme', value);
+			currentScheme = value;
+			html.offsetHeight;
+			html.classList.remove('stop-transition');
+
+			// Hide dropdown.
+			const dropdown = button.closest('.dropdown');
+			dropdown.style.display = 'none';
+			setTimeout(() => {
+				dropdown.style.display = '';
+			}, 20);
+		});
+
+		window.addEventListener('load', function() {
+			updateSchemeComments(currentScheme);
+		});
+
+		document.addEventListener('onRenderPage', function(e) {
+			updateSchemeComments(currentScheme);
+		});
+	})();
+</script>
+{{/if}}

@@ -1,0 +1,12 @@
+<a
+	class="button{{#if class}} {{class}}{{/if}}"
+	href="{{@site.url}}{{#if href}}{{href}}page/{{page}}{{else}}{{page_url page}}{{/if}}"
+	data-pagination="{{#if type}}{{type}}{{else}}load-more{{/if}}"
+	{{#if append}}data-pagination-append="{{append}}"{{/if}}
+	{{#if prepend}}data-pagination-prepend="{{prepend}}"{{/if}}
+	{{#if from}}data-pagination-from="{{from}}"{{/if}}
+>
+	<span class="label">{{label}}</span>
+	<span class="loader">{{> "icons/loader"}}</span>
+	{{#if append}}<span class="complete">{{t "You've reached the end of the list"}}</span>{{/if}}
+</a>

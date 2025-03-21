@@ -1,0 +1,16 @@
+<div class="header">
+	<a class="button button-minimal" href="#popup-navigation" aria-label='{{t "Open a popup with navigation and posts"}}'>
+		{{> "icons/burger"}}
+	</a>
+
+	{{> "components/logo"}}
+
+	{{#if show_breadcrumbs}}
+	{{> "components/breadcrumbs"}}
+	{{/if}}
+
+	<div class="header-buttons">
+		{{> "components/toggle-color-scheme"}}
+		{{> "components/toggle-search"}}
+	</div>
+</div>

@@ -1,0 +1,7 @@
+.toggle-navigation-secondary {
+	&:hover > .button,
+	&:has(.nav-link:focus-visible) > .button {
+		color: var(--color-contrast);
+		background-color: var(--color-background-300);
+	}
+}

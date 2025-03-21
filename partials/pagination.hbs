@@ -1,0 +1,9 @@
+{{#if append}}
+	{{#if next}}
+		{{> "components/pagination-button" label=(t 'Load More') page=next prepend=false}}
+	{{/if}}
+{{else}}
+	{{#if prev}}
+		{{> "components/pagination-button" label=(t 'Previous Posts') page=prev append=false}}
+	{{/if}}
+{{/if}}

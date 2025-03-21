@@ -1,0 +1,8 @@
+.tag-template {
+	.section-hero-content > p {
+		order: -1;
+		font-size: var(--font-small);
+		@mixin font-weight medium;
+		color: var(--color-secondary);
+	}
+}

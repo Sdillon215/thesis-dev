@@ -1,0 +1,58 @@
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	color: var(--color-foreground);
+	font-family: var(--font-family-body);
+	font-size: 16px;
+	line-height: 1.5;
+	@mixin font-weight regular;
+	font-style: normal;
+	background: var(--color-background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body[style*="overflow"] {
+	padding-right: var(--scrollbar-width);
+}
+
+/* Hide ghost button member portal. */
+#ghost-portal-root > iframe {
+	display: none;
+}
+
+/* Fixed background in the member and search portal. */
+#ghost-portal-root > div > iframe,
+.gh-root-frame > iframe {
+	color-scheme: auto;
+}
+
+/* For skip buttons and more. */
+.screen-reader-text {
+	position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  word-wrap: normal !important;
+  border: 0;
+
+	&:focus {
+		top: var(--padding-h);
+		left: var(--padding-h);
+		z-index: 100000;
+		display: block;
+		width: auto !important;
+		height: auto !important;
+		clip: auto !important;
+		clip-path: none;
+		text-decoration: none;
+	}
+}

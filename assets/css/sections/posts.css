@@ -1,0 +1,9 @@
+.section-posts [data-pagination-prepend] {
+	margin-bottom: 28px;
+	min-width: 120px;
+}
+
+.section-posts [data-pagination-append] {
+	margin-top: 28px;
+	min-width: 120px;
+}

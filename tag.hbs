@@ -1,0 +1,31 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" is_page_tag=true has_header=true has_cta=true}}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+{{#tag}}
+	{{> "sections/hero"
+		style_small=true
+		container_wide=true
+		total_posts=../pagination.total
+		match_title_image=true
+		title=name
+	}}
+
+	{{#if description}}
+		<p class="post-excerpt container-wide">{{description}}</p>
+	{{/if}}
+{{/tag}}
+
+<section class="section section-posts container-wide">
+	{{pagination prepend=".tag-posts-list"}}
+	<div class="section-list tag-posts-list">
+		{{#foreach posts}}
+			{{> "components/card-post"}}
+		{{/foreach}}
+	</div>
+	{{pagination type="load-more-infinite" append=".tag-posts-list"}}
+</section>
+
+{{/"layout"}}

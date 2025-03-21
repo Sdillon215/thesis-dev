@@ -1,0 +1,144 @@
+/* stylelint-disable at-rule-no-unknown */
+
+.button,
+button[type='submit'] {
+	@mixin font-weight medium;
+
+	position: relative;
+	display: inline-block;
+	padding: var(--button--padding-top) var(--button--padding-right)
+		var(--button--padding-bottom) var(--button--padding-left);
+	min-height: var(--button--min-height);
+	font-size: var(--button--font-size);
+	font-family: var(--font-family-button);
+	line-height: var(--button--line-height);
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	color: var(--button--color);
+	background-color: var(--button--background-color);
+	border: 0;
+	border-radius: var(--button--border-radius);
+	outline-offset: 2px;
+	opacity: 1;
+	clip-path: inset(0 round var(--button--border-radius));
+	transition:
+		clip-path 0.2s ease,
+		opacity 0.1s ease,
+		background-color 0.1s ease,
+		color 0.1s ease;
+
+	svg {
+		display: block;
+	}
+
+	&:hover {
+		color: var(--button-hover--color);
+		background-color: var(--button-hover--background-color);
+		opacity: 0.9;
+		clip-path: inset(1px round var(--button--border-radius));
+	}
+
+	&:focus-visible {
+		clip-path: none;
+	}
+}
+
+/* Load button. */
+.button {
+	> .loader {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		svg {
+			width: 1.25em;
+			height: 1.25em;
+		}
+	}
+
+	> .complete {
+		display: none;
+	}
+
+	&.loading,
+	&.complete {
+		--button--color: var(--color-contrast);
+		--button--background-color: var(--color-background-300);
+		--button-hover--color: var(--color-contrast);
+		--button-hover--background-color: var(--color-background-300);
+	}
+
+	&.loading {
+		cursor: default;
+
+		&:hover,
+		&:focus {
+			clip-path: none;
+			opacity: 1;
+		}
+
+		> .loader {
+			display: flex;
+		}
+
+		> .label {
+			visibility: hidden;
+		}
+	}
+
+	&.complete {
+		cursor: default;
+		clip-path: none;
+		opacity: 1;
+
+		> .label {
+			display: none;
+		}
+
+		> .complete {
+			display: block;
+		}
+	}
+}
+
+/* Minimal. */
+.button-minimal {
+	--button--min-height: auto;
+
+	display: block;
+	padding: 7.5px;
+	margin-top: -7.5px;
+	margin-bottom: -7.5px;
+	color: var(--color-contrast);
+	border-radius: 2rem;
+	background-color: transparent;
+	clip-path: none;
+
+	&:hover {
+		background-color: var(--color-background-300);
+		color: var(--color-contrast);
+		clip-path: none;
+		opacity: 1;
+	}
+}
+
+.button-minimal:hover,
+.button-minimal:focus-visible,
+.button-minimal[aria-expanded='true'] {
+	color: var(--color-contrast);
+	background-color: var(--color-background-300);
+}
+
+/* Member. */
+.button-member {
+	min-width: 130px;
+}
+
+/* Grey color. */
+.button-grey {
+	--button--color: var(--color-contrast);
+	--button--background-color: var(--color-background-300);
+}

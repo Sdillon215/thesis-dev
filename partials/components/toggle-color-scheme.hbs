@@ -1,0 +1,15 @@
+{{#if @custom.display_color_scheme_toggle}}
+<div class="navigation toggle-color-scheme">
+	<button class="button button-minimal dropdown-toggle" aria-expanded="false">
+		{{> "icons/moon"}}
+		{{> "icons/sun"}}
+	</button>
+	<div class="dropdown">
+		<ul>
+			<li><button class="nav-link toggle-color-scheme-button" value="light">{{> "icons/sun"}} {{t "Light"}}</button></li>
+			<li><button class="nav-link toggle-color-scheme-button" value="dark">{{> "icons/moon"}} {{t "Dark"}}</button></li>
+			<li><button class="nav-link toggle-color-scheme-button" value="system">{{> "icons/monitor"}} {{t "System"}}</button></li>
+		</ul>
+	</div>
+</div>
+{{/if}}

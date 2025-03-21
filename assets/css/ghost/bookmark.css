@@ -1,0 +1,57 @@
+.post-content {
+	.kg-bookmark-card a.kg-bookmark-container {
+		background-color: var(--color-background-200);
+		border: 0;
+		border-radius: var(--radius-3);
+		transition: background-color .15s ease;
+
+		&:hover {
+			background-color: var(--color-background-300);
+			border: 0;
+			border-radius: var(--radius-3);
+		}
+	}
+
+	.kg-bookmark-container {
+		gap: var(--spacing-2);
+		padding: var(--spacing-2) var(--spacing-2) var(--spacing-2) var(--spacing-3);
+	}
+
+	.kg-bookmark-thumbnail > img {
+		border-radius: var(--radius-2);
+	}
+
+	.kg-bookmark-content {
+		padding: 0;
+	}
+
+	.kg-bookmark-title {
+		@mixin heading-6;
+		color: var(--color-contrast);
+	}
+
+	.kg-bookmark-description {
+		margin-top: calc(var(--spacing-1) - 5px);
+		font-size: var(--font-small);
+		line-height: inherit;
+	}
+
+	.kg-bookmark-metadata {
+		margin-top: var(--spacing-1);
+		font-size: var(--font-small);
+		@mixin font-weight medium;
+		color: var(--color-contrast);
+	}
+
+	.kg-bookmark-icon {
+		margin-right: 10px;
+	}
+
+	.kg-bookmark-metadata>span:nth-of-type(2):before {
+		content: "-";
+	}
+
+	.kg-bookmark-metadata>:not(img) {
+		opacity: 1;
+	}
+}

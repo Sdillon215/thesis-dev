@@ -1,0 +1,13 @@
+<div class="navigation-posts posts-list">
+	{{#if is_page_home}}
+		{{#foreach posts}}
+		{{> "components/card-post" current_slug=../../post.slug}}
+		{{/foreach}}
+	{{else}}
+		{{#get "posts" limit=@config.posts_per_page include="tags" as |post|}}
+			{{#post}}
+			{{> "components/card-post" current_slug=../../post.slug}}
+			{{/post}}
+		{{/get}}
+	{{/if}}
+</div>

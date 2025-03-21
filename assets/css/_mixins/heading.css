@@ -1,0 +1,41 @@
+@define-mixin heading-1 {
+	font-size: 1.625rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.1;
+}
+
+@define-mixin heading-2 {
+	font-size: 1.5rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.2;
+}
+
+@define-mixin heading-3 {
+	font-size: 1.375rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.2;
+}
+
+@define-mixin heading-4 {
+	font-size: 1.25rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.3;
+}
+
+@define-mixin heading-5 {
+	font-size: 1.125rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.3;
+}
+
+@define-mixin heading-6 {
+	font-size: 1rem;
+	@mixin font-weight semibold;
+	font-family: var(--font-family-headings);
+	line-height: 1.3;
+}

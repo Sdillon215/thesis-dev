@@ -1,0 +1,11 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" class="page-404" has_header=true }}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+<div class="container">
+	<h1>{{t "404"}}</h1>
+	<h2>{{t "Page not found"}}</h2>
+</div>
+{{/"layout"}}

@@ -1,0 +1,10 @@
+/* stylelint-disable at-rule-no-unknown */
+
+blockquote.kg-blockquote-alt {
+	@mixin heading-3;
+	@mixin font-weight light;
+
+	padding: var(--spacing-2) 0;
+	font-style: inherit;
+	border-left: 0;
+}

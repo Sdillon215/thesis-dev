@@ -1,0 +1,31 @@
+.sidebar .button-member,
+.popup-footer .button-member {
+	--button--color: var(--color-contrast);
+	--button--background-color: var(--color-background);
+	--button-hover--color: var(--color-background);
+	--button-hover--background-color: var(--color-contrast);
+
+	display: block;
+	padding-top: 5.5px;
+	padding-bottom: 5.5px;
+	text-align: center;
+	background-clip: padding-box;
+	border: 1px solid var(--color-border);
+	transition:
+		clip-path 0.2s ease,
+		color 0.1s ease,
+		background-color 0.1s ease,
+		border-color 0.1s ease;
+
+	> .label {
+		color: var(--ghost-accent-color);
+		background-image: var(--gradient);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	&:hover {
+		opacity: 1;
+		border-color: var(--button-hover--background-color);
+	}
+}

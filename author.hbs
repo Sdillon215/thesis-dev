@@ -1,0 +1,35 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" has_header=true has_cta=true}}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+{{#author}}
+
+{{> "sections/hero"
+	style_small=true
+	container_wide=true
+	match_title_image=true
+	title=name
+	custom_excerpt=location
+	feature_image=profile_image
+	total_posts=../pagination.total
+	show_author_links=true
+}}
+
+{{#if bio}}
+	<p class="post-excerpt container-wide">{{bio}}</p>
+{{/if}}
+{{/author}}
+
+<section class="section section-posts container-wide">
+	{{pagination prepend=".author-posts-list"}}
+	<div class="section-list author-posts-list">
+		{{#foreach posts}}
+		{{> "components/card-post"}}
+		{{/foreach}}
+	</div>
+	{{pagination type="load-more-infinite" append=".author-posts-list"}}
+</section>
+
+{{/"layout"}}

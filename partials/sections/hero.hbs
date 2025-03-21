@@ -1,0 +1,97 @@
+{{!--
+	Parameters:
+    * style_small (true, false) - enable small hero.
+		* container_small (true, false) - the forced size of the container, if not, works on the presence of the feature_image (presence - container-wide, no - container).
+		* container_wide (true, false) - the forced size of the container-wide, if not, works on the presence of the feature_image (presence - container-wide, no - container).
+		* match_title_image (match) - for pages with data.page or data.post use "@page.show_title_and_feature_image", if not use "true" or "false" for show title and feature image.
+		* feature_image (src image)
+		* image_back (src image)
+		* total_posts (count) - posts.length
+		* show_button_member (true, false)
+		* show_social_links (true, false)
+		* show_author_links (true, false)
+--}}
+
+<section class="section section-hero{{#if style_small}} section-hero-small{{/if}}{{#if container_small}} container{{else if container_wide}} container-wide{{else}}{{#if feature_image}} container-wide{{else}} container{{/if}}{{/if}}">
+	<div class="section-hero-content">
+		{{#match match_title_image}}
+			{{#if title}}
+				<h1>{{title}}</h1>
+			{{/if}}
+
+			{{#if title_else}}
+			{{#unless title}}
+				<h1>{{title_else}}</h1>
+			{{/unless}}
+			{{/if}}
+		{{/match}}
+
+		{{#if custom_excerpt}}
+			<p>{{custom_excerpt}}</p>
+		{{/if}}
+
+		{{#if total_posts}}{{#unless custom_excerpt}}
+			<p>{{plural total_posts empty=(t "0 posts") singular=(t "% post") plural=(t "% posts")}}</p>
+		{{/unless}}{{/if}}
+
+		{{#if show_button_member}}
+		{{#if @site.portal_button}}
+		{{> "components/button-member"}}
+		{{/if}}
+		{{/if}}
+
+		{{#if show_social_links}}
+		<nav class="navigation{{#unless @site.twitter}}{{#unless @site.facebook}} navigation-hide{{/unless}}{{/unless}}">
+			{{> "components/social-links"}}
+		</nav>
+		{{/if}}
+
+		{{#if show_author_links}}
+			<nav class="navigation">
+				<ul class="social-links social-links-author">
+					{{#if website}}
+					<li>
+						<a class="social-link" href="{{website}}" target="_blank" rel="noopener noreferrer">
+							{{> "icons/glob"}}
+						</a>
+					</li>
+					{{/if}}
+
+					{{#if twitter}}
+					<li>
+						<a class="social-link" href="{{twitter_url}}" target="_blank" rel="noopener noreferrer">
+							{{> "icons/twitter"}}
+						</a>
+					</li>
+					{{/if}}
+					{{#if facebook}}
+					<li>
+						<a class="social-link" href="{{facebook_url}}" target="_blank" rel="noopener noreferrer">
+							{{> "icons/facebook"}}
+						</a>
+					</li>
+					{{/if}}
+				</ul>
+			</nav>
+		{{/if}}
+	</div>
+
+	{{#match match_title_image}}
+		{{#if image_back}}
+			<figure class="section-hero-images">
+				{{> "components/image" size="300" sizes="(max-width: 1300px) 200px, 300px" class="section-hero-image" fast=true src=feature_image alt=feature_image_alt altElse=title}}
+				{{> "components/image" size="300" sizes="(max-width: 1300px) 200px, 300px" class="section-hero-image" src=image_back alt=@site.title}}
+			</figure>
+		{{else}}{{#if feature_image}}
+			<figure>
+				{{#if style_small}}
+				{{> "components/image" size="100" sizes="100px" class="section-hero-image" fast=true src=feature_image alt=feature_image_alt altElse=title}}
+				{{else}}
+				{{> "components/image" size="300" sizes="(max-width: 1300px) 200px, 300px" class="section-hero-image" fast=true src=feature_image alt=feature_image_alt altElse=title}}
+				{{/if}}
+
+				{{#if feature_image_caption}}<figcaption>{{feature_image_caption}}</figcaption>{{/if}}
+			</figure>
+		{{/if}}{{/if}}
+	{{/match}}
+</section>

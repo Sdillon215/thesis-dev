@@ -1,0 +1,3 @@
+.page-home .content {
+	padding-top: calc(var(--spacing-4) + var(--sidebar-header--min-height));
+}

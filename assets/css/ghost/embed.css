@@ -1,0 +1,14 @@
+.post-content .kg-embed-card {
+	> iframe {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		border-radius: 0;
+	}
+}
+
+/* Twitter. */
+.kg-embed-card > .twitter-tweet {
+	margin: 0;
+}

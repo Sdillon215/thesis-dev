@@ -1,0 +1,50 @@
+<aside class="sidebar-posts" id="popup-posts">
+	<div class="sidebar-header">
+		<div class="sidebar-title">{{t "Blog"}}</div>
+
+		{{!-- Filter. --}}
+		{{#get "tags" limit="all" filter="visibility:public"}}
+			{{#if tags}}
+			<select class="sidebar-posts-filter" aria-label="Select tag" data-filter data-filter-append=".sidebar-list, .popup-content-posts .posts-list" data-filter-from=".tag-posts-list">
+				<option value="all">{{t "All"}}</option>
+				{{#foreach tags}}
+				<option value="{{url absolute=true}}">{{name}}</option>
+				{{/foreach}}
+			</select>
+			{{/if}}
+		{{/get}}
+	</div>
+
+	<div class="sidebar-body" id="navigation-posts">
+		{{!-- Pagination prev. --}}
+		{{#if is_page_home}}
+			{{pagination class="button-grey" type="load-more" prepend=".sidebar-list"}}
+		{{/if}}
+
+		{{!-- Posts list. --}}
+		<div class="sidebar-list posts-list">
+			{{#if is_page_home}}
+				{{#foreach posts}}
+					{{> "components/card-post" current_slug=../../post.slug}}
+				{{/foreach}}
+			{{else}}
+				{{#get "posts" limit=@config.posts_per_page include="tags,tiers" as |post|}}
+					{{#post}}
+						{{> "components/card-post" current_slug=../../post.slug}}
+					{{/post}}
+				{{/get}}
+			{{/if}}
+		</div>
+
+		{{!-- Pagination next. --}}
+		{{#if is_page_home}}
+			{{pagination class="button-grey" type="infinite" append=".sidebar-list" is-style-next=true}}
+		{{else}}
+			{{#get "posts" limit="all"}}
+				{{#match posts.length ">" @config.posts_per_page}}
+					{{> "components/pagination-button" class="button-grey" href="/" label=(t 'Load More') page=2 type="infinite" append=".posts-list" from=".sidebar-list"}}
+				{{/match}}
+			{{/get}}
+		{{/if}}
+	</div>
+</aside>

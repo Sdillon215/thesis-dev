@@ -1,0 +1,113 @@
+/* stylelint-disable at-rule-no-unknown */
+.section-tags {
+	> ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		gap: 14px;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		flex-basis: 0;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		min-width: 20%;
+	}
+
+	.nav-link {
+		@mixin font-weight medium;
+
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 20px;
+		max-height: 130px;
+		color: var(--color-background);
+		background-color: var(--color-contrast);
+		font-size: var(--font-small);
+		text-decoration: none;
+		text-align: center;
+		outline-offset: 2px;
+		aspect-ratio: 10/6;
+		border-radius: var(--radius-3);
+		overflow: hidden;
+		z-index: 1;
+
+		/* Overlay. */
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+			z-index: -1;
+			transition: background-color 0.2s ease;
+		}
+
+		&:hover::after {
+			background-color: rgba(128 128 128 / 30%);
+		}
+	}
+
+	.nav-link-has-image {
+		&::after {
+			background-color: rgb(0 0 0 / 30%);
+		}
+
+		&:hover::after {
+			background-color: rgb(0 0 0 / 40%);
+		}
+	}
+
+	.nav-link-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 0;
+		z-index: -1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+			transform: scale(1);
+
+			/* This is mostly used for Safari to prevent label jumping */
+			will-change: transform;
+		}
+	}
+
+	.nav-link:hover > .nav-link-image img {
+		transform: scale(1.04);
+	}
+}
+
+@mixin color-scheme-dark {
+	.section-tags .nav-link {
+		color: var(--color-contrast);
+		background-color: var(--color-background-400);
+	}
+}
+
+@media (--breakpoint-xl) {
+	.section-tags .nav-link {
+		aspect-ratio: 10/7;
+	}
+}
+
+@media (--breakpoint-sm) {
+	.section-tags li {
+		min-width: 40%;
+	}
+}

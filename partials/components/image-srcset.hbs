@@ -1,0 +1,37 @@
+srcset="
+	{{#match size 'xxs'}}
+	{{img_url src size="xxs" format=format}} 50w
+	{{else match size 'xs'}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w
+	{{else match size 's'}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w,
+	{{img_url src size="s" format=format}} 320w
+	{{else match size 'm'}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w,
+	{{img_url src size="s" format=format}} 320w,
+	{{img_url src size="m" format=format}} 500w
+	{{else match size 'l'}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w,
+	{{img_url src size="s" format=format}} 320w,
+	{{img_url src size="m" format=format}} 500w,
+	{{img_url src size="l" format=format}} 700w
+	{{else match size 'xl'}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w,
+	{{img_url src size="s" format=format}} 320w,
+	{{img_url src size="m" format=format}} 500w,
+	{{img_url src size="l" format=format}} 700w,
+	{{img_url src size="xl" format=format}} 1000w
+	{{else}}
+	{{img_url src size="xxs" format=format}} 50w,
+	{{img_url src size="xs" format=format}} 100w,
+	{{img_url src size="s" format=format}} 320w,
+	{{img_url src size="m" format=format}} 500w,
+	{{img_url src size="l" format=format}} 700w,
+	{{img_url src size="xl" format=format}} 1000w,
+	{{img_url src size="xxl" format=format}} 2000w
+	{{/match}}"

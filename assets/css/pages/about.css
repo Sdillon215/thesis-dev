@@ -1,0 +1,4 @@
+.page-about .section-hero-content > p {
+	order: -1;
+	@mixin font-weight regular;
+}

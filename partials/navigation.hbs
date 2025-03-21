@@ -1,0 +1,41 @@
+{{#if isMobile}}
+	{{!-- Limit navigation without separator and categories. --}}
+	{{#foreach navigation limit="10"}}
+		{{#match label.[0] "!=" '-'}}
+			<li class="nav-mobile-item">
+				<a class="nav-link nav-link-{{slug}}{{#if current}} nav-link-current{{/if}}{{#if ../is_page_post}}{{#match slug 'blog'}} nav-link-current{{/match}}{{/if}}" href="{{url absolute="true"}}">
+					{{> "icons-menu/all"}}
+					<span>{{label}}</span>
+				</a>
+			</li>
+		{{/match}}
+	{{/foreach}}
+{{else}}
+<ul>
+	{{#foreach navigation}}
+		{{#match label "---"}}
+		<li class="nav-separator"></li>
+		{{else}}
+		<li>
+			{{!-- Category. --}}
+			{{#match label.[0] "-"}}
+				{{#match url '#'}}
+					<span class="nav-category">{{label}}</span>
+				{{else}}
+					<a class="nav-category" href="{{url absolute="true"}}">{{label}}</a>
+				{{/match}}
+
+			{{!-- Link. --}}
+			{{else}}
+				<a class="nav-link nav-link-{{slug}}{{#if current}} nav-link-current{{/if}}" href="{{url absolute="true"}}">
+					{{#if ../has_icon}}
+						{{> "icons-menu/all"}}
+					{{/if}}
+					<span>{{label}}</span>
+				</a>
+			{{/match}}
+		</li>
+		{{/match}}
+	{{/foreach}}
+</ul>
+{{/if}}

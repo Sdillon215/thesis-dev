@@ -1,0 +1,151 @@
+.section-hero {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--spacing-6);
+
+	.social-links {
+		margin-top: -7.5px;
+		margin-bottom: -7.5px;
+		margin-left: -7.5px;
+	}
+
+	> figure {
+		flex: 0 0 auto;
+		max-width: 100%;
+	}
+
+	> figure:not(.section-hero-images) {
+		display: block;
+		margin: 0;
+		transform: rotate(-3deg);
+	}
+
+	+ .post-excerpt {
+		margin-top: calc(var(--spacing-5) * -1);
+		margin-bottom: 0;
+	}
+}
+
+/* Content. */
+.section-hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	flex-basis: 0;
+	flex-grow: 1;
+	gap: var(--spacing-1);
+
+	> .button,
+	> .navigation {
+		margin-top: 0.25rem;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
+	&:only-child {
+		width: 100%;
+		max-width: var(--container-width);
+	}
+}
+
+/* Style small. */
+.section-hero-small {
+	gap: var(--spacing-3);
+
+	/* stylelint-disable-next-line no-descending-specificity */
+	> figure {
+		order: -1;
+		width: 100px;
+	}
+
+	.section-hero-content {
+		gap: 0.5rem;
+	}
+
+	.section-hero-content > h1 {
+		/* stylelint-disable-next-line at-rule-no-unknown */
+		@mixin heading-4;
+	}
+}
+
+/* Image. */
+.section-hero-image {
+	display: block;
+	flex-basis: 0;
+	flex-grow: 1;
+	overflow: hidden;
+	border-radius: var(--radius-3);
+	width: 280px;
+	max-width: 100%;
+	margin-top: 0;
+	aspect-ratio: 1;
+
+	+ figcaption {
+		width: 280px;
+		max-width: 100%;
+	}
+
+	> img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		background-color: var(--color-background-300);
+	}
+}
+
+/* Images. */
+.section-hero-images {
+	position: relative;
+	display: flex;
+	padding: 10px;
+	width: 340px;
+	margin: 0;
+
+	> .section-hero-image {
+		width: 100%;
+		max-width: 185px;
+		aspect-ratio: 3/4;
+	}
+
+	/* Front image. */
+	> .section-hero-image:first-child {
+		transform: rotate(6deg);
+		margin-left: -50px;
+		order: 1;
+	}
+
+	/* Back image. */
+	> .section-hero-image:last-child {
+		margin-top: 10px;
+		transform: rotate(-6deg);
+	}
+}
+
+@media (--breakpoint-sm) {
+	.section-hero {
+		flex-direction: column;
+	}
+
+	.section-hero-content {
+		width: 100%;
+		max-width: 100%;
+		padding-bottom: 0;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.section-hero-images {
+		justify-content: center;
+		width: 100%;
+		max-width: 300px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.section-hero-small {
+		align-items: flex-start;
+	}
+}

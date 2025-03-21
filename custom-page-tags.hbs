@@ -1,0 +1,37 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" class="template-tags" has_header=true has_cta=true}}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the page --}}
+
+{{> "sections/hero" style_small=true container_wide=true match_title_image=@page.show_title_and_feature_image}}
+
+<div class="section post-content">{{#unless @page.show_title_and_feature_image}}{{#if custom_excerpt}}
+	<p class="post-excerpt">{{custom_excerpt}}</p>
+{{/if}}{{/unless}}{{content}}</div>
+
+{{!-- Tags. --}}
+{{#if @custom.tags_page_displaying_tags}}
+	{{!-- All available tags. --}}
+	{{#match @custom.tags_page_displaying_tags "-1"}}
+		{{#get "tags" limit="all" filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+			{{> "sections/tags"}}
+		{{/get}}
+	{{!-- Number of popular tags. --}}
+	{{else match @custom.tags_page_displaying_tags ">" 0}}
+		{{#get "tags" limit=@custom.tags_page_displaying_tags filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+			{{> "sections/tags"}}
+		{{/get}}
+	{{!-- Select specific tags. --}}
+	{{else}}
+		{{#get "tags" limit="all" filter="slug:[{{@custom.tags_page_displaying_tags}}]"}}
+			{{> "sections/tags"}}
+		{{/get}}
+	{{/match}}
+{{/if}}
+
+{{/post}}
+{{/"layout"}}

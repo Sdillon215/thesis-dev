@@ -1,0 +1,40 @@
+.kg-btn,
+.kg-header-card-button,
+.kg-signup-card-button,
+.kg-product-card-button {
+	padding: var(--button--padding-top) var(--button--padding-right)
+		var(--button--padding-bottom) var(--button--padding-left) !important;
+	height: auto !important;
+	min-height: var(--button--min-height) !important;
+	font-size: var(--button--font-size) !important;
+	font-weight: var(--button--font-weight) !important;
+	font-variation-settings: 'wght' var(--button--font-weight);
+	font-family: var(--font-family-button) !important;
+	line-height: var(--button--line-height) !important;
+	text-align: center;
+	border-radius: var(--button--border-radius) !important;
+	clip-path: inset(0 round var(--button--border-radius));
+	outline-offset: 2px;
+	opacity: 1;
+	transition: var(--button--transition) !important;
+
+	&:hover {
+		opacity: 0.9;
+		clip-path: inset(1px round var(--button--border-radius));
+	}
+
+	&:focus-visible {
+		clip-path: none;
+	}
+}
+
+.kg-btn,
+.kg-product-card-button {
+	color: var(--button--color) !important;
+	background-color: var(--button--background-color) !important;
+
+	&:hover {
+		color: var(--button-hover--color) !important;
+		background-color: var(--button-hover--background-color) !important;
+	}
+}

@@ -1,0 +1,222 @@
+{
+	"name": "thesis",
+	"version": "1.4.0",
+	"description": "Thesis is a premium Ghost theme that offers a minimalist and modern design for personal blogs.",
+	"keywords": [
+		"ghost",
+		"theme",
+		"ghost-theme"
+	],
+	"bugs": "https://github.com/priority-vision/thesis/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/priority-vision/thesis.git"
+	},
+	"author": {
+		"name": "Priority Vision",
+		"email": "support@priority.vision",
+		"url": "https://www.priority.vision/"
+	},
+	"scripts": {
+		"build": "rollup -c --environment BUILD:production",
+		"build:prod": "npm run build && bestzip thesis.zip assets/* locales/* partials/* members/* *.hbs package.json README.md routes.yaml",
+		"dev": "rollup -c --environment BUILD:development -w",
+		"pretest": "npm run build",
+		"test": "gscan .",
+		"test:ci": "gscan --fatal --verbose .",
+		"translate": "gtt c"
+	},
+	"config": {
+		"card_assets": true,
+		"custom": {
+			"color_scheme": {
+				"type": "select",
+				"options": [
+					"Light",
+					"Dark",
+					"System"
+				],
+				"default": "System"
+			},
+			"display_color_scheme_toggle": {
+				"type": "boolean",
+				"default": true
+			},
+			"dark_mode_logo": {
+				"type": "image"
+			},
+			"dark_mode_accent_color": {
+				"type": "color",
+				"default": "#af4978"
+			},
+			"foreground_accent_color": {
+				"type": "color",
+				"default": "#ffffff"
+			},
+			"dark_mode_foreground_accent_color": {
+				"type": "color",
+				"default": "#ffffff"
+			},
+			"tags_list_sidebar": {
+				"type": "text",
+				"default": "5",
+				"description": "Select specific tags: \"video,music\"; or the number of popular tags: \"4\"; or all available tags: \"-1\""
+			},
+			"tags_page_displaying_tags": {
+				"type": "text",
+				"default": "-1",
+				"description": "Select specific tags: \"video,music\"; or the number of popular tags: \"4\"; or all available tags: \"-1\""
+			},
+			"cta_section": {
+				"type": "text",
+				"default": "Become a Member"
+			},
+			"cta_description": {
+				"type": "text",
+				"default": "Join our exclusive community as a member of my personal blog and unlock a world of captivating content"
+			},
+			"cta_button": {
+				"type": "text",
+				"default": "Sign up Now"
+			},
+			"cta_button_url": {
+				"type": "text",
+				"default": "#/portal"
+			},
+			"footer_description": {
+				"type": "text",
+				"default": "Traveling enriches and helps us become better versions of ourselves."
+			},
+			"footer_copyright": {
+				"type": "text"
+			},
+			"header_title": {
+				"type": "text",
+				"default": "Everything about traveling",
+				"group": "homepage"
+			},
+			"header_description": {
+				"type": "text",
+				"default": "Traveling is an enriching experience that allows us to evolve, develop, and become better versions of ourselves.",
+				"group": "homepage"
+			},
+			"header_image": {
+				"type": "image",
+				"group": "homepage"
+			},
+			"header_image_back": {
+				"type": "image",
+				"group": "homepage"
+			},
+			"tags_list": {
+				"type": "text",
+				"default": "4",
+				"group": "homepage",
+				"description": "Select specific tags: \"video,music\"; or the number of popular tags: \"4\"; or all available tags: \"-1\""
+			},
+			"feature_image_aspect_ratio": {
+				"type": "select",
+				"options": [
+					"auto",
+					"1/1",
+					"4/3",
+					"3/2",
+					"2/3",
+					"16/9",
+					"21/9",
+					"9/16"
+				],
+				"default": "16/9",
+				"group": "post"
+			}
+		},
+		"image_sizes": {
+			"32": {
+				"width": 32
+			},
+			"60": {
+				"width": 60
+			},
+			"100": {
+				"width": 100
+			},
+			"200": {
+				"width": 200
+			},
+			"300": {
+				"width": 300
+			},
+			"400": {
+				"width": 400
+			},
+			"600": {
+				"width": 600
+			},
+			"800": {
+				"width": 800
+			},
+			"1200": {
+				"width": 1200
+			},
+			"1600": {
+				"width": 1600
+			}
+		},
+		"posts_per_page": 10
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"dependencies": {
+		"focus-trap": "^7.5.4",
+		"geist": "^1.2.2",
+		"ghost-theme-translator": "^1.0.2",
+		"ivent": "^0.2.0",
+		"pvs": "github:priority-vision/pvs#v1.0.1",
+		"throttle-debounce": "^5.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.21.0",
+		"@babel/preset-env": "^7.20.2",
+		"@lehoczky/postcss-fluid": "^1.0.3",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-commonjs": "^25.0.0",
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"@rollup/plugin-terser": "^0.4.0",
+		"@vercel/style-guide": "^6.0.0",
+		"bestzip": "^2.2.1",
+		"eslint": "^8.57.0",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-simple-import-sort": "^12.0.0",
+		"gscan": "^4.42.0",
+		"postcss": "^8.4.24",
+		"postcss-import": "^15.1.0",
+		"postcss-mixins": "^9.0.4",
+		"postcss-nested": "^6.0.1",
+		"postcss-preset-env": "^8.0.1",
+		"prettier": "^3.2.5",
+		"rollup": "^3.18.0",
+		"rollup-plugin-copy": "^3.5.0",
+		"rollup-plugin-livereload": "^2.0.5",
+		"rollup-plugin-postcss": "^4.0.2",
+		"stylelint": "^16.2.1",
+		"stylelint-config-standard": "^36.0.0"
+	},
+	"engines": {
+		"ghost": ">=5.0.0"
+	},
+	"demo": "https://thesis.priority.vision/",
+	"docs": "https://www.priority.vision/docs/thesis/",
+	"gpm": {
+		"type": "theme",
+		"categories": [
+			"Blog",
+			"Personal",
+			"Minimal",
+			"Newsletter"
+		]
+	},
+	"screenshots": {
+		"desktop": "assets/screenshot-desktop.jpg"
+	}
+}

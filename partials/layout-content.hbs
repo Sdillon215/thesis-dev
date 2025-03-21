@@ -1,0 +1,15 @@
+<div class="main">
+	{{> "layout/sidebar-navigation"}}
+	{{> "layout/sidebar-posts"}}
+
+		<main class="content" id="content">
+			{{#if has_header}}{{> "layout/header" show_breadcrumbs=has_breadcrumbs}}{{/if}}
+
+			<div class="content-ajax">
+				{{> @partial-block }}
+			</div>
+
+			{{#if has_cta}}{{> "sections/cta"}}{{/if}}
+			{{> "layout/footer"}}
+		</main>
+</div>

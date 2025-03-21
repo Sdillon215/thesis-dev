@@ -1,0 +1,55 @@
+/* About. */
+.template-about .section-hero-content > p {
+	order: -1;
+	/* stylelint-disable-next-line at-rule-no-unknown */
+	@mixin font-weight regular;
+}
+
+/* Author. */
+.author-template {
+	.section-hero-content > p {
+		order: -1;
+		font-size: var(--font-small);
+		/* stylelint-disable-next-line at-rule-no-unknown */
+		@mixin font-weight medium;
+
+		color: var(--color-secondary);
+	}
+
+	.post-excerpt {
+		margin-top: calc(var(--spacing-5) * -1);
+	}
+}
+
+/* Blog and Blog empty. */
+.template-blog .template-blog-posts,
+.template-blog-empty .template-blog-posts {
+	display: none;
+}
+
+.template-blog-empty .template-blog-posts .card {
+	min-width: 100%;
+}
+
+@media (--breakpoint-lg) {
+	.template-blog .template-blog-posts,
+	.template-blog-empty .template-blog-posts {
+		display: block;
+	}
+}
+
+/* Narrow. */
+.template-narrow .post-content {
+	--container-width: 440px;
+}
+
+/* Tag. */
+.tag-template .section-hero-content > p {
+	order: -1;
+	font-size: var(--font-small);
+	/* stylelint-disable-next-line at-rule-empty-line-before */
+	/* stylelint-disable-next-line at-rule-no-unknown */
+	@mixin font-weight medium;
+
+	color: var(--color-secondary);
+}

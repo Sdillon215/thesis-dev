@@ -1,0 +1,18 @@
+{{#if tags}}
+<div class="section section-tags container-wide{{#if ../class}} {{../class}}{{/if}}">
+	<ul>
+		{{#foreach tags}}
+		<li>
+			<a class="nav-link{{#if feature_image}} nav-link-has-image{{/if}}" href="{{url}}">
+				{{#if feature_image}}
+				{{> "components/image" size="200" sizes="200px" class="nav-link-image" src=feature_image alt=(t "tag {tag}" tag=name)}}
+				{{else}}
+				<svg class="nav-link-image"></svg>
+				{{/if}}
+				<span>{{name}}</span>
+			</a>
+		</li>
+		{{/foreach}}
+	</ul>
+</div>
+{{/if}}

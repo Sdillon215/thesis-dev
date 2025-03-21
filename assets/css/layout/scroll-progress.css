@@ -1,0 +1,77 @@
+.scroll-progress {
+	position: fixed;
+
+	/* 0.15em alignment for social icons in the footer. */
+	bottom: calc(var(--padding-h) * 2 + 0.15em);
+	right: calc(var(--padding-h) * 2 + 0.15em);
+	color: var(--color-contrast);
+	backdrop-filter: blur(5px);
+	border-radius: 50%;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 3;
+	transition:
+		opacity 0.2s ease,
+		visibility 0.2s ease;
+
+	circle {
+		stroke-dasharray: 300%;
+		stroke-dashoffset: calc(300% + var(--scroll-progress) * 3);
+		stroke-linecap: round;
+		stroke-width: 1.5px;
+		transform: rotate(-90deg) translateX(-100%);
+		r: calc(36px * 0.5 - 0.75px);
+	}
+
+	> svg {
+		position: relative;
+		display: block;
+		width: 36px;
+		height: 36px;
+		pointer-events: none;
+		z-index: 1;
+		opacity: 1;
+		transform: scaleX(-1);
+		transition: opacity 0.2s ease;
+	}
+}
+
+.scroll-progress-button {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background-color: transparent;
+	border-radius: 50%;
+	border: 1.5px solid var(--color-border);
+	outline-offset: 3px;
+	z-index: 1;
+	transition:
+		color 0.1s ease,
+		background-color 0.1s ease,
+		transform 0.2s ease;
+
+	&:hover,
+	&:focus {
+		color: var(--color-background);
+		background-color: var(--color-contrast);
+
+		+ svg {
+			opacity: 0;
+		}
+	}
+}
+
+.scroll-progress-show {
+	visibility: visible;
+	opacity: 1;
+}
+
+@media (--breakpoint-md) {
+	.scroll-progress {
+		bottom: calc(var(--nav-mobile--min-height) + var(--padding-h));
+		right: var(--padding-h);
+	}
+}

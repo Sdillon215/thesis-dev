@@ -1,0 +1,37 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" class="template-blog" has_header=true has_cta=true }}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the page --}}
+
+{{> "sections/hero" style_small=true match_title_image=@page.show_title_and_feature_image}}
+
+<div class="post-content">{{#unless @page.show_title_and_feature_image}}{{#if custom_excerpt}}
+	<p class="post-excerpt">{{custom_excerpt}}</p>
+{{/if}}{{/unless}}{{content}}</div>
+
+<div class="section section-posts container-wide template-blog-posts">
+	<div class="section-list blog-posts-list">
+		{{#get "posts" limit=@config.posts_per_page include="tags,tiers" as |post|}}
+			{{#post}}
+				{{> "components/card-post"}}
+			{{/post}}
+		{{/get}}
+	</div>
+
+	{{#get "posts" limit="all"}}
+		{{#match posts.length ">" @config.posts_per_page}}
+			{{> "components/pagination-button" label=(t 'Load More') href="/" page="2" type="load-more-infinite" append=".blog-posts-list" from=".sidebar-list"}}
+		{{/match}}
+	{{/get}}
+</div>
+
+{{> "sections/posts" title=(t "Featured") filter="featured:true"}}
+
+{{> "sections/posts" title=(t "Paid") filter="visibility:paid"}}
+
+{{/post}}
+{{/"layout"}}

@@ -1,0 +1,9 @@
+{{#if comments}}
+<div class="container post-comments">
+	<div class="post-comments-header">
+		<h2>{{t 'Discussion'}}</h2>
+		<span>{{comment_count}}</span>
+	</div>
+	{{comments title="" count=false}}
+</div>
+{{/if}}

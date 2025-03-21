@@ -1,0 +1,10 @@
+{{#if @site.secondary_navigation}}
+<nav class="navigation navigation-has-current toggle-navigation-secondary">
+	<button class="button button-minimal dropdown-toggle" aria-expanded="false">
+		{{> "icons/more-vertical"}}
+	</button>
+	<div class="dropdown">
+		{{navigation type="secondary" isMobile=false has_icon=false}}
+	</div>
+</nav>
+{{/if}}

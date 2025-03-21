@@ -1,0 +1,17 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#> "layout" has_header=true has_cta=true}}
+{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+
+{{#post}}
+{{!-- Everything inside the #post block pulls data from the page --}}
+
+{{> "sections/hero" match_title_image=@page.show_title_and_feature_image}}
+
+<div class="section post-content">{{#unless @page.show_title_and_feature_image}}{{#if custom_excerpt}}
+	<p class="post-excerpt">{{custom_excerpt}}</p>
+{{/if}}{{/unless}}{{content}}</div>
+
+{{/post}}
+{{/"layout"}}

@@ -1,0 +1,3 @@
+.kg-image-card > img {
+	border-radius: var(--radius-3);
+}

@@ -1,0 +1,23 @@
+.section-cta {
+	display: none;
+	text-align: center;
+
+	> div {
+		width: 100%;
+		max-width: 440px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	h2 {
+		margin-bottom: var(--spacing-2);
+	}
+
+	p {
+		margin-bottom: var(--spacing-3);
+	}
+}
+
+.page-has-cta .section-cta {
+	display: block;
+}

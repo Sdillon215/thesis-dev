@@ -1,0 +1,14 @@
+.template-blog-empty .section-posts {
+	display: none;
+	margin-top: var(--spacing-7);
+
+	.card {
+		min-width: 100%;
+	}
+}
+
+@media (--breakpoint-lg) {
+	.template-blog-empty .section-posts {
+		display: block;
+	}
+}

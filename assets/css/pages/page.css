@@ -1,0 +1,3 @@
+.page {
+	padding-top: calc(40px + var(--sidebar-header--min-height));
+}

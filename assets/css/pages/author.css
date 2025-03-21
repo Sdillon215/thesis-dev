@@ -1,0 +1,13 @@
+.author-template {
+	.section-hero-content > p {
+		order: -1;
+		font-size: var(--font-small);
+		@mixin font-weight medium;
+		color: var(--color-secondary);
+	}
+
+	.post-excerpt {
+		margin-top: var(--spacing-3);
+		margin-bottom: var(--spacing-7);
+	}
+}

@@ -1,0 +1,13 @@
+{{#if @custom.cta_section}}
+<section class="section section-cta">
+	<div>
+		<h2 class="section-title">{{@custom.cta_section}}</h2>
+
+		{{#if @custom.cta_description}}<p>{{@custom.cta_description}}</p>{{/if}}
+
+		{{#if @custom.cta_button}}
+		<a class="button button-member" href="{{@custom.cta_button_url}}">{{@custom.cta_button}}</a>
+		{{/if}}
+	</div>
+</section>
+{{/if}}
