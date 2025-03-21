@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{@site.locale}}" data-color-scheme="{{#match @custom.color_scheme "Dark"}}dark{{else match @custom.color_scheme "Light"}}light{{else}}system{{/match}}">
+<html lang="{{@site.locale}}" data-color-scheme="{{#match @custom.color_scheme " Dark"}}dark{{else match
+	@custom.color_scheme "Light" }}light{{else}}system{{/match}}">
+
 <head>
 	{{!-- Basic meta - advanced meta is output with {{ghost_head}} below --}}
 	<title>{{meta_title page=(t "Page %")}}</title>
@@ -12,9 +14,14 @@
 	{{/if}}
 
 	{{!-- Preload scripts --}}
-	<link rel="preload" as="style" href="{{asset "built/index.css"}}">
-	<link rel="preload" as="script" href="{{asset "assets/vendors/pvs.min.js"}}">
-	<link rel="preload" as="script" href="{{asset "built/index.js"}}">
+	<link rel="preload" as="style" href="{{asset " built/index.css"}}">
+	<link rel="preload" as="script" href="{{asset " assets/vendors/pvs.min.js"}}">
+	<link rel="preload" as="script" href="{{asset " built/index.js"}}">
+
+	{{!-- Conditionally Load Tailwind CDN for Post Pages --}}
+	{{#is "home"}}
+	<script src="https://cdn.tailwindcss.com"></script>
+	{{/is}}
 
 	{{!-- Preload main styles and scripts for better performance --}}
 	<style>
@@ -25,28 +32,93 @@
 		}
 
 		:root {
-			{{#if @custom.dark_mode_accent_color}}--color-dark-accent: {{@custom.dark_mode_accent_color}};{{/if}}
-			{{#if @custom.foreground_accent_color}}--color-accent-foreground: {{@custom.foreground_accent_color}};{{/if}}
-			{{#if @custom.dark_mode_foreground_accent_color}}--color-dark-accent-foreground: {{@custom.dark_mode_foreground_accent_color}};{{/if}}
-			--feature-image--aspect-ratio: {{@custom.feature_image_aspect_ratio}};
+				{
+					{
+					#if @custom.dark_mode_accent_color
+				}
+			}
+
+			--color-dark-accent: {
+					{
+					@custom.dark_mode_accent_color
+				}
+			}
+
+			;
+
+				{
+					{
+					/if
+				}
+			}
+
+				{
+					{
+					#if @custom.foreground_accent_color
+				}
+			}
+
+			--color-accent-foreground: {
+					{
+					@custom.foreground_accent_color
+				}
+			}
+
+			;
+
+				{
+					{
+					/if
+				}
+			}
+
+				{
+					{
+					#if @custom.dark_mode_foreground_accent_color
+				}
+			}
+
+			--color-dark-accent-foreground: {
+					{
+					@custom.dark_mode_foreground_accent_color
+				}
+			}
+
+			;
+
+				{
+					{
+					/if
+				}
+			}
+
+			--feature-image--aspect-ratio: {
+					{
+					@custom.feature_image_aspect_ratio
+				}
+			}
+
+			;
 		}
 	</style>
 
 	{{!-- Theme styles. --}}
-	<link rel="stylesheet" type="text/css" href="{{asset "built/index.css"}}">
+	<link rel="stylesheet" type="text/css" href="{{asset " built/index.css"}}">
 
 	{{!-- Ivent. --}}
-	<script src="{{asset "assets/vendors/ivent.min.js"}}"></script>
+	<script src="{{asset " assets/vendors/ivent.min.js"}}"></script>
 
 	{{!-- PVS. --}}
-	<link rel="stylesheet" type="text/css" href="{{asset "assets/vendors/pvs.min.css"}}">
-	<script src="{{asset "assets/vendors/pvs.min.js"}}"></script>
+	<link rel="stylesheet" type="text/css" href="{{asset " assets/vendors/pvs.min.css"}}">
+	<script src="{{asset " assets/vendors/pvs.min.js"}}"></script>
 
-	{{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always be the last tag before the closing head tag --}}
+	{{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings, it should always
+	be the last tag before the closing head tag --}}
 	{{ghost_head}}
 </head>
 
 {{{body}}}
 
 {{!-- {ghost_foot} moved to file layout.hbs --}}
+
 </html>
