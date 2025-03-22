@@ -95,16 +95,17 @@
 				"default": "Everything about traveling",
 				"group": "homepage"
 			},
-			"header_description": {
+			"header_text_1": {
 				"type": "text",
 				"default": "Traveling is an enriching experience that allows us to evolve, develop, and become better versions of ourselves.",
 				"group": "homepage"
 			},
-			"header_image": {
-				"type": "image",
+			"header_text_2": {
+				"type": "text",
+				"default": "Join me on this journey as we explore the world together.",
 				"group": "homepage"
 			},
-			"header_image_back": {
+			"header_image": {
 				"type": "image",
 				"group": "homepage"
 			},

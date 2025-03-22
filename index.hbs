@@ -1,47 +1,50 @@
-{{!< default}}
-{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+{{!< default}} {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+	<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer>
+	</script>
 
-{{#> "layout" class="page-home" is_page_home=true has_header=true has_cta=true}}
-{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
+	{{#> "layout" class="page-home" is_page_home=true has_header=true has_cta=true}}
+	{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
 
-{{> "sections/hero"
+	{{> "sections/hero"
 	match_title_image=true
 	title=@custom.header_title
 	title_else=@site.title
-	custom_excerpt=@custom.header_description
+	header_text_1=@custom.header_text_1
+	header_text_2=@custom.header_text_2
 	show_button_member=true
 	show_social_links=true
 	feature_image=@custom.header_image
-	image_back=@custom.header_image_back
-}}
+	}}
 
-{{!-- Tags. --}}
-{{#if @custom.tags_list}}
+	{{!-- Tags. --}}
+	{{#if @custom.tags_list}}
 	{{!-- All available tags. --}}
 	{{#match @custom.tags_list "-1"}}
-		{{#get "tags" limit="all" filter="visibility:public" include="count.posts" order="count.posts DESC"}}
-			{{> "sections/tags"}}
-		{{/get}}
+	{{#get "tags" limit="all" filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+	{{> "sections/tags"}}
+	{{/get}}
 	{{!-- Number of popular tags. --}}
 	{{else match @custom.tags_list ">" 0}}
-		{{#get "tags" limit=@custom.tags_list filter="visibility:public" include="count.posts" order="count.posts DESC"}}
-			{{> "sections/tags"}}
-		{{/get}}
+	{{#get "tags" limit=@custom.tags_list filter="visibility:public" include="count.posts" order="count.posts DESC"}}
+	{{> "sections/tags"}}
+	{{/get}}
 	{{!-- Select specific tags. --}}
 	{{else}}
-		{{#get "tags" limit="all" filter="slug:[{{@custom.tags_list}}]"}}
-			{{> "sections/tags"}}
-		{{/get}}
+	{{#get "tags" limit="all" filter="slug:[{{@custom.tags_list}}]"}}
+	{{> "sections/tags"}}
+	{{/get}}
 	{{/match}}
-{{/if}}
+	{{/if}}
 
-{{!-- Featured posts. --}}
-{{> "sections/posts" title=(t "Featured") filter="featured:true"}}
+	{{!-- Featured posts. --}}
+	{{> "sections/posts" title=(t "Featured") filter="featured:true"}}
 
-{{!-- Paid posts. --}}
-{{> "sections/posts" title=(t "Paid") filter="visibility:paid"}}
+	{{!-- Paid posts. --}}
+	{{> "sections/posts" title=(t "Paid") filter="visibility:paid"}}
 
-{{!-- Latest posts. --}}
-{{> "sections/posts" title=(t "Latest")}}
+	{{!-- Latest posts. --}}
+	{{> "sections/posts" title=(t "Latest")}}
 
-{{/"layout"}}
+	<div class="commonninja_component pid-a6d45232-f7d4-41e1-8e84-f4b1325ca075"></div>
+
+	{{/"layout"}}
