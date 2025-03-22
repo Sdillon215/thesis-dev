@@ -47,7 +47,7 @@
 			},
 			"dark_mode_accent_color": {
 				"type": "color",
-				"default": "#af4978"
+				"default": "#32ff19"
 			},
 			"foreground_accent_color": {
 				"type": "color",
@@ -55,7 +55,7 @@
 			},
 			"dark_mode_foreground_accent_color": {
 				"type": "color",
-				"default": "#ffffff"
+				"default": "#002060,"
 			},
 			"tags_list_sidebar": {
 				"type": "text",
