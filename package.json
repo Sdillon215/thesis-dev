@@ -55,7 +55,7 @@
 			},
 			"dark_mode_foreground_accent_color": {
 				"type": "color",
-				"default": "#002060,"
+				"default": "#002060"
 			},
 			"tags_list_sidebar": {
 				"type": "text",
