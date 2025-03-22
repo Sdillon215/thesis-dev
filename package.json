@@ -73,7 +73,7 @@
 			},
 			"cta_description": {
 				"type": "text",
-				"default": "Join our exclusive community as a member of my personal blog and unlock a world of captivating content"
+				"default": "Join our community of Scrum, Agile & AI experts!"
 			},
 			"cta_button": {
 				"type": "text",
@@ -83,26 +83,24 @@
 				"type": "text",
 				"default": "#/portal"
 			},
-			"footer_description": {
-				"type": "text",
-				"default": "Traveling enriches and helps us become better versions of ourselves."
-			},
-			"footer_copyright": {
-				"type": "text"
-			},
 			"header_title": {
 				"type": "text",
-				"default": "Everything about traveling",
+				"default": "Fun, fast, and effective online workshops that can get you certified in Agile/Scrum and AI.",
 				"group": "homepage"
 			},
 			"header_text_1": {
 				"type": "text",
-				"default": "Traveling is an enriching experience that allows us to evolve, develop, and become better versions of ourselves.",
+				"default": "Certifiably fun!",
 				"group": "homepage"
 			},
 			"header_text_2": {
 				"type": "text",
-				"default": "Join me on this journey as we explore the world together.",
+				"default": "- Sheena S. - Professional MasterClass Series fan and now a Certified ScrumMaster",
+				"group": "homepage"
+			},
+			"header_text_3": {
+				"type": "text",
+				"default": "Get 2 certifications in 2 days. Real skills. Real certs. Real fun.",
 				"group": "homepage"
 			},
 			"header_image": {

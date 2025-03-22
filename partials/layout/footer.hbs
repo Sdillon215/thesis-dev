@@ -2,7 +2,6 @@
 	<div class="container-wide">
 		<div class="footer-col">
 			{{> "components/logo"}}
-			{{#if @custom.footer_description}}<p>{{@custom.footer_description}}</p>{{/if}}
 		</div>
 
 		<nav class="navigation footer-navigation">
@@ -11,11 +10,7 @@
 
 		<hr class="footer-divider">
 
-		{{#if @custom.footer_copyright}}
-		<div class="footer-copyright">{{@custom.footer_copyright}}</div>
-		{{else}}
 		<div class="footer-copyright">&copy; {{date format="YYYY"}} {{@site.title}}<span>{{{t ' - Published with {ghostLink} & {themeLink}' ghostLink="<a href='https://ghost.org/' target='_blank' rel='noopener'>Ghost</a>" themeLink="<a href='https://www.priority.vision/themes/thesis/' target='_blank' rel='noopener'>Thesis</a>" }}}</span></div>
-		{{/if}}
 
 		<nav class="navigation{{#unless @site.twitter}}{{#unless @site.facebook}} navigation-hide{{/unless}}{{/unless}}">
 			{{> "components/social-links"}}
