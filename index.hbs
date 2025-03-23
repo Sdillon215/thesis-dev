@@ -1,6 +1,4 @@
 {{!< default}} {{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
-	<script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer>
-	</script>
 
 	{{#> "layout" class="page-home" is_page_home=true has_header=true has_cta=true}}
 	{{!-- The tag above means: insert everything in this file into the body of the layout.hbs template --}}
@@ -19,6 +17,7 @@
 
 	{{> "sections/the-difference"}}
 	{{> "sections/audiences"}}
+	{{> "sections/logo-slider"}}
 	{{> "sections/student-reviews"}}
 
 	{{!-- Tags. --}}
@@ -49,7 +48,5 @@
 
 	{{!-- Latest posts. --}}
 	{{> "sections/posts" title=(t "Latest")}}
-
-	<div class="commonninja_component pid-a6d45232-f7d4-41e1-8e84-f4b1325ca075"></div>
 
 	{{/"layout"}}
