@@ -1,23 +1,58 @@
-{{!-- Student Reviews --}}
-<section class="student-reviews">
-    <div style="background: #0F0F0F; padding: 40px; border-radius: 10px;">
-        <div style="text-align: center; margin: 10px auto 20px; max-width: 800px;">
-            <div
-                style="display: inline-block; background: #32ff19; padding: 8px 20px; border-radius: 20px; margin-bottom: 15px;">
-                <span
-                    style="color: #333; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Student
-                    Reviews</span>
-            </div>
-            <h2 style="color: #ffffff; font-size: 32px; margin-bottom: 10px; font-weight: 700;">What Our Students
-                Say</h2>
-            <p style="color: #B0B0B0; font-size: 16px; margin-bottom: 15px;">Join thousands of satisfied learners
-                worldwide</p>
-            <hr
-                style="border: none; height: 4px; background: linear-gradient(90deg, transparent, #32ff19, transparent); width: 100px; margin: 10px auto 30px;">
-        </div>
-        <div>
-            <iframe src="https://widgets.commoninja.com/iframe/c92a79ac-a492-4964-a88e-d5214a4aad89" width="100%"
-                height="775px" frameborder="0" scrolling="no"></iframe>
-        </div>
+<style>
+.review-section {
+    background: #0F0F0F;
+    padding: 40px;
+}
+
+/* === Centered Content Wrapper === */
+.review-content {
+    text-align: center;
+    margin: 10px auto 20px;
+    max-width: 800px;
+}
+
+/* === Heading & Text === */
+.review-title {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.review-text {
+    color: #B0B0B0;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* === Decorative Divider === */
+.review-divider {
+    border: none;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #32ff19, transparent);
+    width: 100px;
+    margin: 10px auto 10px;
+}
+
+/* === Responsive Iframe === */
+.review-iframe {
+    width: 100%;
+    height: 775px;
+    border: none;
+    display: block;
+}
+</style>
+
+<section class="review-section">
+    <div class="review-content">
+        <h2 class="review-title">What Our Students Say</h2>
+        <p class="review-text">Join thousands of satisfied learners worldwide</p>
+        <hr class="review-divider">
+    </div>
+    <div>
+        <iframe class="review-iframe" 
+            src="https://widgets.commoninja.com/iframe/c92a79ac-a492-4964-a88e-d5214a4aad89" 
+            scrolling="no">
+        </iframe>
     </div>
 </section>

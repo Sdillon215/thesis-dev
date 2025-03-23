@@ -1,0 +1,128 @@
+<style>
+    .home-3-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .home-3-container h2 {
+        font-size: 36px;
+        margin: 20px 0;
+        color: #ffffff;
+    }
+
+    .home-3-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px 0px 0px 0px;
+    }
+
+    .home-3-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #1E1E1E;
+        padding: 20px;
+        border-radius: 10px;
+        flex: 1;
+        min-width: 300px;
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .home-3-column:hover {
+        transform: translateY(-5px);
+    }
+
+    .home-3-column h3 {
+        font-size: 24px;
+        color: #FFFFFF;
+        margin-bottom: 10px;
+    }
+
+    .home-3-column p {
+        font-size: 14px;
+        color: #B0B0B0;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    .home-3-column p strong {
+        font-size: 16px;
+        color: #32ff19;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    .home-3-full-width {
+        width: 100%;
+    }
+
+    .home-3-cta-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .home-3-cta-button {
+        background: #32ff19;
+        color: #000000;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+    .home-3-cta-button:hover {
+        background: #32ff19;
+        color: #000000;
+    }
+
+    @media (max-width: 768px) {
+        .home-3-row {
+            flex-direction: column;
+        }
+
+        .home-3-cta-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+
+<section class="home-3-container">
+    <h2>Audiences</h2>
+    <div class="home-3-row">
+        <div class="home-3-column">
+            <h3>For Agile/Scrum Professionals</h3>
+            <p><strong>“Get Certified the Smart Way”</strong></p>
+            <p>• Certified ScrumMaster®, Certified Scrum Product Owner® and Certified Agile Facilitator</p>
+            <p>• Live, interactive, fast-paced workshops</p>
+            <p>• Designed for real-world success</p>
+        </div>
+        <div class="home-3-column">
+            <h3>For AI-Curious Humans and Professionals</h3>
+            <p><strong>“AI Skills for the Real World”</strong></p>
+            <p>• AI workshops for upskilling, job searching, and career transitions</p>
+            <p>• From beginner-friendly webinars to pro-ready certification</p>
+            <p>• Learn how to use AI tools that boost your life and work</p>
+        </div>
+    </div>
+
+    <div class="home-3-column home-3-full-width" style="margin-top: 20px;">
+        <h3>Exclusive Dual-Certification</h3>
+        <p><strong>“Get AI AND Agile Trained”</strong></p>
+        <p>• Earn two certifications in the time it takes others to earn one</p>
+        <p>• Make your time and resources count</p>
+        <p>• Regardless of your company's AI policies, get the tools you need - and the edge you need</p>
+    </div>
+
+    <div class="home-3-cta-container">
+        <a href="/workshops" class="button button-member">See All Upcoming Workshops</a>
+        <a href="/webinars" class="button button-member">Explore Training Webinars</a>
+    </div>
+</section>
