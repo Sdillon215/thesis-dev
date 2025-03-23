@@ -19,6 +19,15 @@ feature_image (presence - container-wide, no - container).
 		color: var(--ghost-accent-color);
 	}
 
+	.shining-text {
+		background: linear-gradient(90deg, #32ff19, #fff, #32ff19);
+		background-size: 200% 100%;
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+		animation: shine 2s linear infinite;
+	}
+
 	.fade-slide-in-left {
 		opacity: 0;
 		/* Start fully transparent */
@@ -26,6 +35,10 @@ feature_image (presence - container-wide, no - container).
 		/* Start off-screen to the left */
 		animation: fadeSlideInLeft 1s forwards;
 		/* Apply the animation */
+	}
+
+	.bounce {
+		animation: bounce 1s ease-in-out;
 	}
 
 	@keyframes fadeSlideInLeft {
@@ -38,6 +51,34 @@ feature_image (presence - container-wide, no - container).
 			opacity: 1;
 			transform: translateX(0);
 			/* End at normal position */
+		}
+	}
+
+	@keyframes bounce {
+		0% {
+			transform: translateY(0);
+		}
+
+		30% {
+			transform: translateY(-15px);
+		}
+
+		60% {
+			transform: translateY(5px);
+		}
+
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes shine {
+		0% {
+			background-position: -200% 0;
+		}
+
+		100% {
+			background-position: 200% 0;
 		}
 	}
 </style>
@@ -131,5 +172,9 @@ feature_image (presence - container-wide, no - container).
 	</figure>
 	{{/if}}
 	{{/match}}
+
+	{{#if header_text_3}}
+	<h4 class="shining-text">{{header_text_3}}</h4>
+	{{/if}}
 
 </section>
