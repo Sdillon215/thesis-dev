@@ -15,11 +15,19 @@ feature_image (presence - container-wide, no - container).
 --}}
 
 <style>
+	.centered {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.bright-heading {
 		color: var(--ghost-accent-color);
 	}
 
 	.shining-text {
+		font-size: 36px;
+		text-align: center;
 		background: linear-gradient(90deg, #32ff19, #fff, #32ff19);
 		background-size: 200% 100%;
 		color: transparent;
@@ -174,7 +182,9 @@ feature_image (presence - container-wide, no - container).
 	{{/match}}
 
 	{{#if header_text_3}}
-	<h4 class="shining-text">{{header_text_3}}</h4>
+	<div class="centered">
+		<h4 class="shining-text">{{header_text_3}}</h4>
+	</div>
 	{{/if}}
 
 </section>
