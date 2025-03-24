@@ -15,10 +15,21 @@ feature_image (presence - container-wide, no - container).
 --}}
 
 <style>
+	#homeHero {
+		max-width: 1000px;
+		padding: 30px;
+		margin: 0 auto;
+	}
+
 	.centered {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		width: 100%;
+	}
+
+	.centered h4 {
+		max-width: 550px;
 	}
 
 	.bright-heading {
@@ -91,7 +102,7 @@ feature_image (presence - container-wide, no - container).
 	}
 </style>
 
-<section
+<section id="homeHero"
 	class="section section-hero{{#if style_small}} section-hero-small{{/if}}{{#if container_small}} container{{else if container_wide}} container-wide{{else}}{{#if feature_image}} container-wide{{else}} container{{/if}}{{/if}}">
 	<div class="section-hero-content">
 		{{#match match_title_image}}
