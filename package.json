@@ -107,12 +107,6 @@
 				"type": "image",
 				"group": "homepage"
 			},
-			"tags_list": {
-				"type": "text",
-				"default": "4",
-				"group": "homepage",
-				"description": "Select specific tags: \"video,music\"; or the number of popular tags: \"4\"; or all available tags: \"-1\""
-			},
 			"feature_image_aspect_ratio": {
 				"type": "select",
 				"options": [
