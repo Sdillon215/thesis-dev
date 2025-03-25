@@ -47,7 +47,7 @@
 			},
 			"dark_mode_accent_color": {
 				"type": "color",
-				"default": "#32ff19"
+				"default": "#ACFF15"
 			},
 			"foreground_accent_color": {
 				"type": "color",
