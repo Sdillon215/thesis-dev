@@ -29,24 +29,4 @@
 	{{!-- Latest posts. --}}
 	{{> "sections/upcoming-events" title=(t "Upcoming Events") filter="tags:upcoming-event"}}
 
-		{{!-- Tags. --}}
-	{{#if @custom.tags_list}}
-	{{!-- All available tags. --}}
-	{{#match @custom.tags_list "-1"}}
-	{{#get "tags" limit="all" filter="visibility:public" include="count.posts" order="count.posts DESC"}}
-	{{> "sections/tags"}}
-	{{/get}}
-	{{!-- Number of popular tags. --}}
-	{{else match @custom.tags_list ">" 0}}
-	{{#get "tags" limit=@custom.tags_list filter="visibility:public" include="count.posts" order="count.posts DESC"}}
-	{{> "sections/tags"}}
-	{{/get}}
-	{{!-- Select specific tags. --}}
-	{{else}}
-	{{#get "tags" limit="all" filter="slug:[{{@custom.tags_list}}]"}}
-	{{> "sections/tags"}}
-	{{/get}}
-	{{/match}}
-	{{/if}}
-
 	{{/"layout"}}
