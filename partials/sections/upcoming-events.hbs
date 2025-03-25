@@ -1,18 +1,10 @@
-{{#get "posts" include="tags,tiers" limit=3 filter=filter}}
+{{#get "posts" include="tags,tiers" filter=filter}}
 {{#if posts}}
 <section class="section section-posts container-wide">
 	<h2 class="section-title">{{../title}}</h2>
 	<div class="section-list">
 		{{#foreach posts}}
-			{{#has number="1"}}
-			{{> "components/card-post" has_image=true}}
-			{{/has}}
-			{{#has number="2"}}
-			{{> "components/card-post"}}
-			{{/has}}
-			{{#has number="3"}}
-			{{> "components/card-post"}}
-			{{/has}}
+			{{> "components/card-event" has_image=true}}
 		{{/foreach}}
 	</div>
 </section>
