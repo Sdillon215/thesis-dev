@@ -1,0 +1,74 @@
+<style>
+    .home-2-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+
+    .home-2-h2 {
+        font-size: 36px;
+        margin: 20px 0;
+        color: #ffffff;
+    }
+
+    .home-2-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 20px 10px;
+        justify-content: center;
+    }
+
+    .home-2-card {
+        background: #1E1E1E;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px #32ff19;
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        text-align: left;
+        transition: transform 0.3s ease;
+    }
+
+    .home-2-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .home-2-card .home-2-h3 {
+        font-size: 20px;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+
+    .home-2-card .home-2-p {
+        font-size: 16px;
+        color: #B0B0B0;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+        .home-2-card-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+
+<section class="home-2-container">
+    <h2 class="home-2-h2">What's In It For You?</h2>
+    <div class="home-2-card-container">
+        <div class="home-2-card">
+            <h3 class="home-2-h3">2 Certs. 2 Days. Zero Drag.</h3>
+            <p class="home-2-p">Your time is valuable. We double your return.</p>
+        </div>
+        <div class="home-2-card">
+            <h3 class="home-2-h3">InfoTainment-Style Learning</h3>
+            <p class="home-2-p">Training you'll actually enjoy. We mix real knowledge with real personality.</p>
+        </div>
+        <div class="home-2-card">
+            <h3 class="home-2-h3">AI and Agile—For Everyone</h3>
+            <p class="home-2-p">From tech pros to career changers, we've got smart, practical training that sticks.</p>
+        </div>
+    </div>
+</section>
