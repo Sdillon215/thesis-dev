@@ -1,34 +1,37 @@
-<article class="card card-post{{#if has_image}}{{#if feature_image}} card-has-image{{/if}}{{/if}}{{#match slug current_slug}} card-post-active{{/match}}">
-	<a class="card-link" href="{{url}}" aria-label="{{title}}"></a>
-	{{#if has_image}}
-	{{#if feature_image}}
-		{{> "components/image" class="card-image" src=feature_image alt=title}}
-	{{/if}}
-	{{/if}}
-	<div class="card-content">
-		<div class="card-header">{{#if featured}}
-			<span class="card-header-icon">
-				{{> "icons/featured"}}
-				<span class="tooltip">{{t "Featured Post"}}</span>
-			</span>
-		{{/if}}{{#unless access}}
-			<span class="card-header-icon">
-				{{> "icons/lock"}}
-				{{#has visibility="paid"}}
-					<span class="tooltip">{{t "Paid Post"}}</span>
-				{{else has visibility="tiers"}}
-					<span class="tooltip">{{tiers}}</span>
-				{{else}}
-					<span class="tooltip">{{t "For Members"}}</span>
-				{{/has}}
-			</span>
-		{{/unless}}{{#primary_tag}}
-			<a class="card-tag" href="{{url}}">{{name}}</a>
-		{{/primary_tag}}</div>
-		<h3 class="card-title">{{title}}</h3>
-		<div class="card-footer">
-			<time class="card-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time>
-			<span class="card-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
-		</div>
-	</div>
+<article
+    class="card card-post{{#if has_image}}{{#if feature_image}} card-has-image{{/if}}{{/if}}{{#match slug current_slug}} card-post-active{{/match}}">
+    <a class="card-link" href="{{url}}" aria-label="{{title}}"></a>
+    {{#if has_image}}
+    {{#if feature_image}}
+    {{> "components/image" class="card-image" src=feature_image alt=title}}
+    {{/if}}
+    {{/if}}
+    <div class="card-content">
+        <div class="card-header">{{#if featured}}
+            <span class="card-header-icon">
+                {{> "icons/featured"}}
+                <span class="tooltip">{{t "Featured Post"}}</span>
+            </span>
+            {{/if}}{{#unless access}}
+            <span class="card-header-icon">
+                {{> "icons/lock"}}
+                {{#has visibility="paid"}}
+                <span class="tooltip">{{t "Paid Post"}}</span>
+                {{else has visibility="tiers"}}
+                <span class="tooltip">{{tiers}}</span>
+                {{else}}
+                <span class="tooltip">{{t "For Members"}}</span>
+                {{/has}}
+            </span>
+            {{/unless}}{{#primary_tag}}
+            <a class="card-tag" href="{{url}}">{{name}}</a>
+            {{/primary_tag}}
+        </div>
+        <h3 class="card-title">{{title}}</h3>
+        <div>{{excerpt}}</div>
+        <div class="card-footer">
+            <time class="card-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time>
+            <span class="card-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        </div>
+    </div>
 </article>
