@@ -1,5 +1,32 @@
+<style>
+    .event-card {
+        transition: transform 0.3s ease;
+    }
+
+    .event-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .text-orange {
+        color: #F58B00;
+    }
+
+    .event-title {
+        font-size: 24px;
+    }
+
+    .text-green {
+        color: #ACFF15;
+    }
+
+    .event-center {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
 <article
-    class="card card-post{{#if has_image}}{{#if feature_image}} card-has-image{{/if}}{{/if}}{{#match slug current_slug}} card-post-active{{/match}}">
+    class="event-card card card-post{{#if has_image}}{{#if feature_image}} card-has-image{{/if}}{{/if}}{{#match slug current_slug}} card-post-active{{/match}}">
     <a class="card-link" href="{{url}}" aria-label="{{title}}"></a>
     {{#if has_image}}
     {{#if feature_image}}
@@ -24,14 +51,13 @@
                 {{/has}}
             </span>
             {{/unless}}{{#primary_tag}}
-            <a class="card-tag" href="{{url}}">{{name}}</a>
+            <a class="card-tag text-orange" href="{{url}}">{{name}}</a>
             {{/primary_tag}}
         </div>
-        <h3 class="card-title">{{title}}</h3>
+        <h3 class="event-title">{{title}}</h3>
         <div>{{excerpt}}</div>
-        <div class="card-footer">
-            <time class="card-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date format="MMM D, YYYY"}}</time>
-            <span class="card-time">{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+        <div class="card-footer event-center">
+            <p class="text-green">RESERVE YOUR SPOT NOW!</p>
         </div>
     </div>
 </article>

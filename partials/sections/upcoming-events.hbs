@@ -1,11 +1,22 @@
-{{#get "posts" include="tags,tiers" filter=filter}}
+<style>
+    .event-section-center {
+        display: flex;
+        justify-content: center;
+		padding: 20px;
+    }
+</style>
+
+{{#get "posts" include="tags,tiers" limit=3 filter=filter include="count.posts" order="count.posts DESC"}}
 {{#if posts}}
 <section class="section section-posts container-wide">
 	<h2 class="section-title">{{../title}}</h2>
 	<div class="section-list">
 		{{#foreach posts}}
-			{{> "components/card-event" has_image=true}}
+			{{> "components/card-event"}}
 		{{/foreach}}
+	</div>
+	<div class="event-section-center">
+		<a href="/tag/upcoming-event/" class="button">View All Events</a>
 	</div>
 </section>
 {{/if}}
