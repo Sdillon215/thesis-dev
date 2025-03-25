@@ -20,7 +20,16 @@
 	{{> "sections/logo-slider"}}
 	{{> "sections/student-reviews"}}
 
-	{{!-- Tags. --}}
+	{{!-- Featured posts. --}}
+	{{!-- {{> "sections/posts" title=(t "Featured") filter="featured:true"}} --}}
+
+	{{!-- Paid posts. --}}
+	{{!-- {{> "sections/posts" title=(t "Paid") filter="visibility:paid"}} --}}
+
+	{{!-- Latest posts. --}}
+	{{> "sections/upcoming-events" title=(t "Upcoming Events") filter="tags:upcoming-event"}}
+
+		{{!-- Tags. --}}
 	{{#if @custom.tags_list}}
 	{{!-- All available tags. --}}
 	{{#match @custom.tags_list "-1"}}
@@ -39,14 +48,5 @@
 	{{/get}}
 	{{/match}}
 	{{/if}}
-
-	{{!-- Featured posts. --}}
-	{{> "sections/posts" title=(t "Featured") filter="featured:true"}}
-
-	{{!-- Paid posts. --}}
-	{{> "sections/posts" title=(t "Paid") filter="visibility:paid"}}
-
-	{{!-- Latest posts. --}}
-	{{> "sections/posts" title=(t "Latest")}}
 
 	{{/"layout"}}
