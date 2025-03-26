@@ -32,6 +32,24 @@ feature_image (presence - container-wide, no - container).
 		max-width: 550px;
 	}
 
+	.home-hero-cta-button {
+		background: #ACFF15;
+		color: #002060;
+		padding: 12px 20px;
+		border-radius: 8px;
+		text-decoration: none;
+		font-size: 22px;
+		font-weight: bold;
+		transition: background 0.3s ease;
+	}
+
+	.center-hero-cta {
+		display: flex;
+		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.bright-heading {
 		color: var(--ghost-accent-color);
 	}
@@ -47,12 +65,30 @@ feature_image (presence - container-wide, no - container).
 		animation: shine 2s linear infinite;
 	}
 
-	.fade-slide-in-left {
+	.fade-slide-in-left-1 {
 		opacity: 0;
 		/* Start fully transparent */
 		transform: translateX(-100%);
 		/* Start off-screen to the left */
 		animation: fadeSlideInLeft 1s forwards;
+		/* Apply the animation */
+	}
+
+	.fade-slide-in-left-2 {
+		opacity: 0;
+		/* Start fully transparent */
+		transform: translateX(-100%);
+		/* Start off-screen to the left */
+		animation: fadeSlideInLeft 3s forwards;
+		/* Apply the animation */
+	}
+
+	.fade-slide-in-left-3 {
+		opacity: 0;
+		/* Start fully transparent */
+		transform: translateX(-100%);
+		/* Start off-screen to the left */
+		animation: fadeSlideInLeft 2s forwards;
 		/* Apply the animation */
 	}
 
@@ -107,7 +143,7 @@ feature_image (presence - container-wide, no - container).
 	<div class="section-hero-content">
 		{{#match match_title_image}}
 		{{#if title}}
-		<h1>{{title}}</h1>
+		<h1 class="fade-slide-in-left-1">{{title}}</h1>
 		{{/if}}
 
 		{{#if title_else}}
@@ -118,11 +154,11 @@ feature_image (presence - container-wide, no - container).
 		{{/match}}
 
 		{{#if header_text_1}}
-		<h4 class="bright-heading fade-slide-in-left">{{header_text_1}}</h4>
+		<h4 class="bright-heading fade-slide-in-left-2">{{header_text_1}}</h4>
 		{{/if}}
 
 		{{#if header_text_2}}
-		<p>{{header_text_2}}</p>
+		<p class="fade-slide-in-left-3">{{header_text_2}}</p>
 		{{/if}}
 
 		{{#if total_posts}}
@@ -197,5 +233,10 @@ feature_image (presence - container-wide, no - container).
 		<h4 class="shining-text">{{header_text_3}}</h4>
 	</div>
 	{{/if}}
+
+	<div class="center-hero-cta">
+		<a href="https://www.tickettailor.com/events/professionalmasterclassseries"
+			class="button button-member home-hero-cta-button">Register Now!</a>
+	</div>
 
 </section>
