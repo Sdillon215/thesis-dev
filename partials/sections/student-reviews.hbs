@@ -1,46 +1,64 @@
 <style>
-.review-section {
-    background: #0F0F0F;
-    padding: 40px;
-}
+    .review-section {
+        background: #0F0F0F;
+        padding: 40px;
+    }
 
-/* === Centered Content Wrapper === */
-.review-content {
-    text-align: center;
-    margin: 10px auto 20px;
-    max-width: 800px;
-}
+    /* === Centered Content Wrapper === */
+    .review-content {
+        text-align: center;
+        margin: 10px auto 20px;
+        max-width: 800px;
+    }
 
-/* === Heading & Text === */
-.review-title {
-    color: #ffffff;
-    font-size: 32px;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
+    /* === Heading & Text === */
+    .review-title {
+        color: #ffffff;
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
 
-.review-text {
-    color: #B0B0B0;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
+    .review-text {
+        color: #B0B0B0;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
 
-/* === Decorative Divider === */
-.review-divider {
-    border: none;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, #ACFF15, transparent);
-    width: 100px;
-    margin: 10px auto 10px;
-}
+    /* === Decorative Divider === */
+    .review-divider {
+        border: none;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #ACFF15, transparent);
+        width: 100px;
+        margin: 10px auto 10px;
+    }
 
-/* === Responsive Iframe === */
-.review-iframe {
-    width: 100%;
-    height: 775px;
-    border: none;
-    display: block;
-}
+    /* === Responsive Iframe === */
+    .review-iframe {
+        width: 100%;
+        height: 750px;
+        border: none;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .review-iframe {
+            height: 900px;
+        }
+
+        .review-section {
+            background: #0F0F0F;
+            padding: 5px;
+        }
+
+        /* === Centered Content Wrapper === */
+        .review-content {
+            text-align: center;
+            margin: 10px;
+            max-width: 800px;
+        }
+    }
 </style>
 
 <section class="review-section">
@@ -50,8 +68,7 @@
         <hr class="review-divider">
     </div>
     <div>
-        <iframe class="review-iframe" 
-            src="https://widgets.commoninja.com/iframe/c92a79ac-a492-4964-a88e-d5214a4aad89" 
+        <iframe class="review-iframe" src="https://widgets.commoninja.com/iframe/c92a79ac-a492-4964-a88e-d5214a4aad89"
             scrolling="no">
         </iframe>
     </div>
