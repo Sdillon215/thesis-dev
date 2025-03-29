@@ -6,7 +6,7 @@
     }
 </style>
 
-{{#get "posts" include="tags,tiers" limit=3 filter=filter include="count.posts" order="count.posts DESC"}}
+{{#get "posts" include="tags,tiers" limit=3 filter=filter include="count.posts" order="published_at asc"}}
 {{#if posts}}
 <section class="section section-posts container-wide">
 	<h2 class="section-title">{{../title}}</h2>
